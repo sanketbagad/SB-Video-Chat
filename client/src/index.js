@@ -1,5 +1,5 @@
 import React from 'react';
-import app from './app'
+import App from './App';
 import ReactDOM from 'react-dom';
-
-ReactDOM.render(<app />, document.getElementById('root'))
+import "./styles.css"
+ReactDOM.render(<App />, document.getElementById('root'))
