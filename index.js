@@ -34,7 +34,7 @@ io.on("connection", (socket) => {
 })
 
 server.listen(PORT, () => {
-    console.log("Fucking server listening on port")
+    console.log(" server listening on port")
 })
 
 
