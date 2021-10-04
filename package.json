@@ -1,0 +1,11 @@
+{
+  "name": "sb__meet",
+  "version": "1.0.0",
+  "description": "A fullStack web-application like zoom/meet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sanket Bagad",
+  "license": "ISC"
+}
