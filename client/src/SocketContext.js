@@ -51,7 +51,7 @@ const ContextProvider = ({ children }) => {
     }
 
     const callUser = () => {
-        const peer = new Peer({initiator:false, trickle: false, stream})
+        const peer = new Peer({initiator:true, trickle: false, stream})
     }
 
     const leaveCall = () => {}
