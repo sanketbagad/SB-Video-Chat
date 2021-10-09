@@ -6,8 +6,7 @@ import {CopyToClipboard} from "react-copy-to-clipboard"
 const Options = ({ children }) => {
     return (
         <div>
-            {children}
-            {console.log("Fuck you!!")}
+        {children}
         </div>
     )
 }
