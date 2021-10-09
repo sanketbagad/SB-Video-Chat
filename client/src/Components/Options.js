@@ -7,6 +7,7 @@ const Options = ({ children }) => {
     return (
         <div>
             {children}
+            {console.log("Fuck you!!")}
         </div>
     )
 }
