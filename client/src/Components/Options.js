@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { Button, TextField, Grid, Typography, Container, Paper } from 'material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import {CopyToClipboard} from "react-copy-to-clipboard"
@@ -34,13 +34,36 @@ const useStyles = makeStyles((theme) => ({
       padding: '10px 20px',
       border: '2px solid black',
     },
-   }));
+   })); 
 
 const Options = ({ children }) => {
+    const {me, callAccepted, callEnded, name, setName, leaveCall}  = useContext(SocketContext)
+    
+    const [idToCall, setIdToCall] = useState("")
+    const classes = useStyles()
+    
     return (
-        <div>
-        {children}
-        </div>
+        <Container className={classes.container}>
+            <Paper elevation={10} className={classes.paper}>
+                <form className={classes.root} noValidate autoComplete="off">
+                    <Grid container className={classes.gridContainer}>
+                        <Grid item xs={12} md={6} className={classes.padding}>
+                            <Typography variant="h6" gutterBottom>
+                                Account Name
+                            </Typography>
+                            <TextField fullWidth label="name" value={name} onChange={(e) => setName(e.target.value)}>
+
+                            </TextField>
+                            <CopyToClipboard text={me} className={classes.margin}>
+                                <Button variant="contained" color="primary" fullWidth startIcon={<Assignment fontSize="large" />}>
+                                Copy Your ID
+                                </Button>
+                            </CopyToClipboard>
+                        </Grid>
+                    </Grid>
+                </form>
+            </Paper>
+        </Container>
     )
 }
 
