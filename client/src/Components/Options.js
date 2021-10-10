@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
    })); 
 
 const Options = ({ children }) => {
-    const {me, callAccepted, callEnded, name, setName, leaveCall}  = useContext(SocketContext)
+    const {me, callAccepted, callUser, callEnded, name, setName, leaveCall}  = useContext(SocketContext)
     
     const [idToCall, setIdToCall] = useState("")
     const classes = useStyles()
@@ -59,6 +59,25 @@ const Options = ({ children }) => {
                                 Copy Your ID
                                 </Button>
                             </CopyToClipboard>
+                        </Grid>
+
+                        <Grid item xs={12} md={6} className={classes.padding}>
+                            <Typography variant="h6" gutterBottom>
+                                Make A Call
+                            </Typography>
+                            <TextField fullWidth label="ID to Call" value={idToCall} onChange={(e) => setIdToCall(e.target.value)}>
+
+                            </TextField>
+                           {callAccepted && !callEnded ? (
+                                <Button variant="contained" color="secondary" startIcon={<PhoneDisabled fontSize="large"
+                                fullWidth className={classes.margin} onClick={leaveCall} />}>
+                                    Hang Up
+                                </Button>
+                           ) : (
+                                <Button variant="contained" color="priamry" fullWidth className={classes.margin} onClick={callUser(idToCall)} startIcon={<Phone fontSize="large" />}  >
+                                    Call
+                                </Button>
+                           )}
                         </Grid>
                     </Grid>
                 </form>
